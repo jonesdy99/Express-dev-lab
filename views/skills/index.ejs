@@ -9,15 +9,16 @@
 <body>
   <h1>Skills</h1>
   <ul>
-    <% skills.forEach(skill => { %>
+    <% skills.forEach(skills => { %>
       <li>
-				<%= skill.text %> 
+				<%= skills.text %> 
 				- 
-				<%= skill.person  %>
+				<%= skills.person  %>
         -----
-        <%= skill.college %> 
+        <%= skills.college %> 
 			</li>
     <% }) %>
   </ul>
+  <a href="/skills/new">Add-Skills</a>
 </body>
 </html>
