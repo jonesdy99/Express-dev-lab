@@ -11,11 +11,16 @@
   <ul>
     <% skills.forEach(skills => { %>
       <li>
-				<%= skills.text %> 
+				<a href="/skills/<%= skills._id %> "><%= skills.text %> </a>
+        
+        
+        
+        
+        <!-- <%= skills.text %> 
 				- 
 				<%= skills.person  %>
         -----
-        <%= skills.college %> 
+        <%= skills.college %>  -->
 			</li>
     <% }) %>
   </ul>
