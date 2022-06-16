@@ -1,6 +1,11 @@
+import {skills} from '../data/skill-data.js'
+
 function index(req,res){
-  //text
-}
+    res.render('skills/index',{
+      skills: skills
+    })
+  }
+
 
 export{
   index
