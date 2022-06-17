@@ -4,7 +4,8 @@ function index(req,res){
   Skill.find({})
   .then(skills => {
     res.render('skills/index',{
-      skills:skills
+      skills:skills,
+      time:req.time
     })
   })
   .catch(error => {
@@ -13,9 +14,24 @@ function index(req,res){
   })
 }
 
+function show(req,res){
+  Skill.findById(req.params.id)
+  .then(skill => {
+    res.render('skills/show',{
+      skill:skill
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/skills')
+  })
+}
+
 function newSkill(req,res){
   res.render('skills/new')
 }
+
+
 
 function create(req,res){
   Skill.create(req.body)
@@ -27,8 +43,20 @@ function create(req,res){
   })
 }
 
+function deleteSkill(req,res){
+  Skill.findByIdAndDelete(req.params.id)
+  .then(skill => {
+    res.redirect('/skills')
+  })
+  .catch(error => {
+    res.redirect('/skills')
+  })
+}
+
 export{
   index,
+  show,
   newSkill as new,
-  create
+  create,
+  deleteSkill as delete,
 }
